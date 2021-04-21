@@ -10,7 +10,7 @@ A microwave system implemented in Verilog
   - Counter 0-7
   - Mux
 - Magnetron Control
-  - And/Or/Not Logig
+  - And/Or/Not Logic
   - SR latch
 - 7-Segment Decoder/Driver
 
