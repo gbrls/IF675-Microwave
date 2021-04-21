@@ -13,3 +13,5 @@ A microwave system implemented in Verilog
   - And/Or/Not Logig
   - SR latch
 - 7-Segment Decoder/Driver
+
+![](structure.jpeg)
