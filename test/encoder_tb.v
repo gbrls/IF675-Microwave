@@ -1,24 +1,26 @@
-`timescale 1ns/1ps
+`timescale 1us/1ps
 module encoder_tb ();
 
     reg [9:0] key;
     reg clk;
     reg enablen;
 
+    integer i;
+
     encoder DUT(.key(key), .clk(clk), .enablen(enablen));
 
     initial begin
         $dumpfile("test/encoder_tb.vcd");
         $dumpvars;
-        clk = 0;
+        clk = 1;
         enablen = 0;
         key = 9'b000000000;
-        #1 enablen = 1;
-        #1 clk = 0;
-        #1 clk = 1;
-        #1 enablen = 0;
-        #1 clk = 0;
-        #1 clk = 1;
+
+        for(i = 0; i < 3005; i++) begin
+            #500 clk <= ~clk;
+        end
+
+
         #10;
     end
     

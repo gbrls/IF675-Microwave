@@ -7,6 +7,7 @@ module encoder (
     output wire loadn
 );
 
+    div100 divider(.clk(clk), .clk_div(pgt_1Hz));
     assign loadn = enablen | clk;
     
 endmodule
