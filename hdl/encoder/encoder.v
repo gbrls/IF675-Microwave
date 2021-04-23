@@ -8,6 +8,7 @@ module encoder (
 );
 
     div100 divider(.clk(clk), .clk_div(pgt_1Hz));
+    dbc debouncer(.clk(clk), .clear(enablen));
     assign loadn = enablen | clk;
     
 endmodule
