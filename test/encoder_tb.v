@@ -9,6 +9,8 @@ module encoder_tb ();
 
     encoder DUT(.key(key), .clk(clk), .enablen(enablen));
 
+    reg muxa, muxb;
+    mux2x1 DUT2(.sel(clk), .a(muxa), .b(muxb));
 
     initial begin
         $dumpfile("test/encoder_tb.vcd");
@@ -19,7 +21,7 @@ module encoder_tb ();
         key = 9'b000000000;
 
         for(i = 0; i < 3005; i++) begin
-            #500 clk <= ~clk;
+            #5000 clk <= ~clk;
         end
 
 
@@ -27,26 +29,41 @@ module encoder_tb ();
     end
 
     initial begin
-        enablen = 0;
-        #20;
-        #1 enablen = 1;
-        #250 enablen = 0;
-        #1 enablen = 1;
-        #1 enablen = 0;
-        
-        #7000;
+        #1000 key = 0;
+        #100000 key = 1;
+        #200000 key = 0;
 
-        #200 enablen = 1;
-        #200 enablen = 0;
-        #800 enablen = 1;
-        #400 enablen = 0;
-        #100 enablen = 1;
-        #300 enablen = 0;
+        #120000 key = 1;
+        #1000 key = 0;
+        #3000 key = 1;
+        #5000 key = 0;
+        #2000 key = 1;
+        #8000 key = 0;
+        #9000 key = 1;
 
-        #8000;
+        #500000 key = 0;
         enablen = 1;
-        #500 enablen = 0;
+        #10000000;
+    end
 
+    initial begin
+        muxa = 0;
+        muxb = 0;
+
+        #1000 muxa = 0;
+        #1000 muxb = 0;
+
+        #1000 muxa = 0;
+        #1000 muxb = 1;
+
+        #1000 muxa = 1;
+        #1000 muxb = 0;
+
+        #1000 muxa = 1;
+        #1000 muxb = 1;
+
+        #100;
+        
     end
     
 endmodule

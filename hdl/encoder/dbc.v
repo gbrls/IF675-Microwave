@@ -9,13 +9,16 @@ module dbc (
     reg counting = 0;
 
     always @ (posedge clear) begin
-        if (cnt == 3'd0) begin
-            counting = 1;
-        end
-        else if (cnt == 3'd7) begin
+        if (cnt == 3'd7) begin
             counting = 0;
             cnt = 3'd0;
             out = 0;
+        end
+    end
+
+    always @ (negedge clear) begin
+        if (cnt == 3'd0) begin
+            counting = 1;
         end
     end
 
