@@ -1,0 +1,80 @@
+$date
+	Thu Apr 29 20:03:10 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module control_tb $end
+$var wire 1 ! magOn_TB $end
+$var reg 1 " clearn_TB $end
+$var reg 1 # doorClosed_TB $end
+$var reg 1 $ startn_TB $end
+$var reg 1 % stopn_TB $end
+$var reg 1 & timerDone_TB $end
+$scope module DUT $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 ! mag_on $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$var wire 1 ' rQ $end
+$var reg 1 ( rR $end
+$var reg 1 ) rS $end
+$scope module LSR_ON $end
+$var wire 1 ( R $end
+$var wire 1 ) S $end
+$var wire 1 ' Q $end
+$var reg 1 ' rQ $end
+$var reg 1 * rQn $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1*
+0)
+0(
+1'
+0&
+0%
+0$
+0#
+0"
+1!
+$end
+#10000
+0!
+0'
+0(
+1#
+1$
+#20000
+1(
+1*
+1!
+1'
+0)
+1&
+0$
+#30000
+0(
+0&
+1%
+#40000
+0!
+0'
+0(
+0#
+0%
+#50000
+1*
+1!
+1'
+0)
+1#
+1%
