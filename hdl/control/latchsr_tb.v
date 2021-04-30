@@ -17,6 +17,15 @@ module latchsr_tb();
 			#10 S_TB=1; R_TB=0;
 			#10 S_TB=1; R_TB=0;
 			#10 S_TB=0; R_TB=0;
+			#10 S_TB=1; R_TB=0;
+			#10 S_TB=1; R_TB=0;
+			#10 S_TB=1; R_TB=0;
+			#10 S_TB=1; R_TB=0;
+			#10 S_TB=1; R_TB=0;
+			#10 S_TB=0; R_TB=1;
+			#10 S_TB=0; R_TB=1;
+			#10 S_TB=0; R_TB=0;
+			#10 S_TB=0; R_TB=0;
 		end
 
 endmodule

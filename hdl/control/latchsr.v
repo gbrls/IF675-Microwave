@@ -2,13 +2,19 @@ module latchsr (
     output wire Q,
     input wire  R, S 
 );
-    reg rQ , rQn ; 
-    always @(R,S) begin
-        if(R != S || S == 0 )
+    reg rQ = 0; 
+    assign Q = rQ; 
+
+    always @(S,R) begin
+        if(S && R || !S && !R)
         begin
-            rQ  = !(R && rQn);
-            rQn = !(S && rQ);             
+            // fazer nada
+        end
+        else if(!S && R) begin
+            rQ = 0;
+        end
+        else if(S && !R) begin
+            rQ = 1;
         end
     end
-    assign Q = rQ; 
 endmodule
