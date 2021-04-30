@@ -14,7 +14,7 @@ module control_tb();
 	initial
 		begin
 		
-			$dumpfile("control_tb.vcd");
+			$dumpfile("test/control_tb.vcd");
 			$dumpvars(0,control_tb);
 
 			    startn_TB=0; stopn_TB=0; clearn_TB=0; timerDone_TB=0; doorClosed_TB=0;   

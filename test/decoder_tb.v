@@ -24,7 +24,7 @@ module decoder_tb();
 	initial
 		begin
 		
-			$dumpfile("decoder_tb.vcd");
+			$dumpfile("test/decoder_tb.vcd");
 			$dumpvars(0,decoder_tb);
 
 			    sec_ones_TB=0; sec_tens_TB=0; min_TB=0;    
