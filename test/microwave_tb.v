@@ -154,7 +154,7 @@ module microwave_tb();
         startn = 0;
         #100000;
         startn = 1;
-        #800000000;
+        #300000000;
 
         // Teste 3
 
@@ -187,21 +187,66 @@ module microwave_tb();
         #100000;
         startn = 1;
         #3000000;
-        // Abrindo a porta
+        // CLicando em parar
         stopn = 0;
         #810000;
-        startn = 0;
+        startn = 1;
         #100000;
         startn = 1;
         #100000;
-        // Fechando a porta
+        // Clicando em start
         stopn = 1;
+        #500000;
+        startn = 0;
         #100000;
+        startn = 1;
+        #500000000;
+
+
+        // Teste 4
+        key = 9'b000000000;
+        door_closed = 1;
+        stopn = 1;
+        clearn = 1;
+        startn = 1;
+
+        // Digitando o 2
+        #120000;
+        key = 9'b000000100;
+        #110000;
+        key = 9'b000000000;
+
+        // Digitando o 4
+        #110000;
+        key = 9'b000010000;
+        #110000;
+        key = 9'b000000000;
+
+        // Digitando o 5
+        #110000;
+        key = 10'b0000100000;
+        #110000;
+        key = 9'b000000000;
+
+        #110000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #3000000;
+        // CLicando em limpar
+        clearn = 0;
+        #810000;
+        startn = 1;
+        #100000;
+        startn = 1;
+        #100000;
+        // Clicando em start
+        clearn = 1;
+        #500000;
         startn = 0;
         #100000;
         startn = 1;
         #800000000;
-
     end
     
 endmodule
