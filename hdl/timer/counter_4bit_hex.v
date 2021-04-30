@@ -16,18 +16,18 @@ module counter_4bit_hex (
     always @(posedge clock)
     begin: COUNTER
         if (enable) begin
-            if (!loadn) begin
-                cur_state <= data_in;
+            if (cur_state == 4'b0000) begin
+                cur_state <= 4'd5;
+                //tc <= 1;
             end
             else begin
-                if (cur_state == 4'b0000) begin
-                    cur_state <= 4'b0101;
-                    // tc <= 1;
-                end
-                else begin
-                    cur_state <= cur_state - 1;
-                    // tc <= 0;
-                end
+                cur_state <= cur_state - 1;
+                //tc <= 0;
+            end
+        end
+        else begin
+            if (!loadn) begin
+                cur_state <= data_in;
             end
         end
     end
@@ -35,7 +35,7 @@ module counter_4bit_hex (
     always @(negedge clear) begin
         if (!clear) begin
             cur_state <= 4'b0000;
-            //// tc <= 1;
+            //tc <= 1;
         end
     end
 

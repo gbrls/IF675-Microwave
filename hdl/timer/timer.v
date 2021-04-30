@@ -2,7 +2,7 @@ module timer (
     input wire [3:0] data_in,
     input wire loadn, clock, clear, enable,
     output wire [3:0] sec_ones, sec_tens, mins,
-    output wire tc, zero
+    output wire zero
 );
     // wire [3:0] sec_out, ten_sec_out;
     wire en_tens_sec, en_min, en_sec;

@@ -1,3 +1,7 @@
+all:
+	iverilog hdl/encoder/*.v hdl/timer/*.v hdl/control/*.v hdl/decoder/*.v hdl/*.v test/microwave_tb.v  -o bin/microwave
+	vvp bin/microwave
+
 encoder:
 	iverilog hdl/encoder/*.v test/encoder_tb.v -o bin/encoder
 	vvp bin/encoder
