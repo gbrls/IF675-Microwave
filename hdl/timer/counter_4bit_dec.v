@@ -1,0 +1,42 @@
+
+module counter_4bit_dec (
+        output wire [3:0] data_out,
+        output wire tc,
+        output wire zero,
+        input wire loadn, clock, clear, enable,
+        input wire [3:0] data_in
+    );
+    
+    reg [ 3: 0 ] cur_state;
+    assign data_out = cur_state; 
+
+    assign zero = (cur_state == 0) ? 1 : 0;
+    assign tc = ((cur_state == 0) & enable) ? 1 : 0;
+
+    always @(posedge clock)
+    begin: COUNTER
+        if (enable) begin
+            if (!loadn) begin
+                cur_state <= data_in;
+            end
+            else begin
+                if (cur_state == 4'b0000) begin
+                    cur_state <= 4'b1001;
+                    //tc <= 1;
+                end
+                else begin
+                    cur_state <= cur_state - 1;
+                    //tc <= 0;
+                end
+            end
+        end
+    end
+
+    always @(negedge clear) begin
+        if (!clear) begin
+            cur_state <= 4'b0000;
+            //tc <= 1;
+        end
+    end
+
+endmodule
