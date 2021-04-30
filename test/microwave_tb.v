@@ -66,7 +66,12 @@ module microwave_tb();
         - Depois de 30 segundos o botão de limpar será pressionado
         - O timer será zerado
         - O microondas será desligado
-            
+
+        Teste 5:
+        - O microondas estará com tudo zerado.
+        - A porta estará fechada
+        - O usuário entrará o número 1:79
+        - O microondas será ligado e irá até 0
     */
 
     initial begin
@@ -200,10 +205,11 @@ module microwave_tb();
         startn = 0;
         #100000;
         startn = 1;
-        #500000000;
+        #300000000;
 
 
         // Teste 4
+
         key = 9'b000000000;
         door_closed = 1;
         stopn = 1;
@@ -246,7 +252,43 @@ module microwave_tb();
         startn = 0;
         #100000;
         startn = 1;
-        #800000000;
+        #500000000;
+
+        // Teste 5
+        
+        key = 9'b000000000;
+        door_closed = 1;
+        stopn = 1;
+        clearn = 1;
+        startn = 1;
+
+        // Digitando o 1
+        #120000;
+        key = 9'b000000010;
+        #110000;
+        key = 9'b000000000;
+
+        // Digitando o 7
+        #110000;
+        key = 9'b010000000;
+        #110000;
+        key = 9'b000000000;
+
+        // Digitando o 5
+        #110000;
+        key = 10'b1000000000;
+        #110000;
+        key = 9'b000000000;
+
+        #110000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #3000000;
+
+        // 1418000 ms
+        // 1556000 ms
+        
     end
     
 endmodule
