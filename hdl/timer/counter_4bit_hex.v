@@ -1,5 +1,5 @@
 
-module counter_4bit_dec (
+module counter_4bit_hex (
         output wire [3:0] data_out,
         output wire tc,
         output wire zero,
@@ -21,12 +21,12 @@ module counter_4bit_dec (
             end
             else begin
                 if (cur_state == 4'b0000) begin
-                    cur_state <= 4'b1001;
-                    //tc <= 1;
+                    cur_state <= 4'b0101;
+                    // tc <= 1;
                 end
                 else begin
                     cur_state <= cur_state - 1;
-                    //tc <= 0;
+                    // tc <= 0;
                 end
             end
         end
@@ -35,7 +35,7 @@ module counter_4bit_dec (
     always @(negedge clear) begin
         if (!clear) begin
             cur_state <= 4'b0000;
-            //tc <= 1;
+            //// tc <= 1;
         end
     end
 
