@@ -41,7 +41,7 @@ module microwave_tb();
         Teste 2:
         - O microondas estará com tudo zerado.
         - A porta estará fechada
-        - O usuário entrará o número 3:35
+        - O usuário entrará o número 2:45
         - Depois de 30 segundos a porta será aberta
         - O timer irá parar
         - A porta será fechada
@@ -129,13 +129,78 @@ module microwave_tb();
         key = 9'b000010000;
         #110000;
         key = 9'b000000000;
-        door_closed = 0;
 
         // Digitando o 5
         #110000;
         key = 10'b0000100000;
         #110000;
         key = 9'b000000000;
+
+        #110000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #3000000;
+        // Abrindo a porta
+        door_closed = 0;
+        #810000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #100000;
+        // Fechando a porta
+        door_closed = 1;
+        #100000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #800000000;
+
+        // Teste 3
+
+        key = 9'b000000000;
+        door_closed = 1;
+        stopn = 1;
+        clearn = 1;
+        startn = 1;
+
+        // Digitando o 2
+        #120000;
+        key = 9'b000000100;
+        #110000;
+        key = 9'b000000000;
+
+        // Digitando o 4
+        #110000;
+        key = 9'b000010000;
+        #110000;
+        key = 9'b000000000;
+
+        // Digitando o 5
+        #110000;
+        key = 10'b0000100000;
+        #110000;
+        key = 9'b000000000;
+
+        #110000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #3000000;
+        // Abrindo a porta
+        stopn = 0;
+        #810000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #100000;
+        // Fechando a porta
+        stopn = 1;
+        #100000;
+        startn = 0;
+        #100000;
+        startn = 1;
+        #800000000;
 
     end
     
