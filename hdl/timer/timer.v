@@ -12,7 +12,7 @@ module timer (
 
     counter_4bit_hex ten_secs(.loadn(loadn), .clock(clock), .clear(clear), .enable(en_tens_sec), .data_in(sec_ones), .data_out(sec_tens), .tc(en_min), .zero(zero_ten_sec));
 
-    counter_4bit_dec minutes(.loadn(loadn), .clock(clock), .clear(clear), .enable(en_min), .data_in(sec_tens), .data_out(mins), .tc(en_sec), .zero(zero_sec));
+    counter_4bit_dec minutes(.loadn(loadn), .clock(clock), .clear(clear), .enable(en_min), .data_in(sec_tens), .data_out(mins), .tc(en_sec), .zero(zero_min));
 
     and(zero, zero_sec, zero_ten_sec, zero_min);
     
